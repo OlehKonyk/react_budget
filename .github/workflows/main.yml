@@ -1,6 +1,6 @@
 # This is a basic workflow of git to help you get started with Actions
 
-name: Build and Release
+name: Збірка та Реліз
 
 on:
   push:
@@ -19,6 +19,9 @@ jobs:
 
       - name: Зібрати додаток
         run: npm run build
+
+      - name: Вивести вміст робочого каталогу
+        run: ls -R
 
       - name: Розгорнути 🚀
         uses: JamesIves/github-pages-deploy-action@v4

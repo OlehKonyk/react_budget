@@ -18,10 +18,9 @@ jobs:
         run: npm ci
 
       - name: Зібрати додаток
-        run: npm run build
-
-      - name: Вивести вміст робочого каталогу
-        run: ls -R
+        run: |
+          npm run build
+          mkdir dist
 
       - name: Розгорнути 🚀
         uses: JamesIves/github-pages-deploy-action@v4

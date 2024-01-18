@@ -2,25 +2,25 @@
 
 name: Build and Release
 
-# Control when the workflow will run
 on:
   push:
-    branches: [ "master" ]
-  worlflow_dispatch:
+    branches: ["master"]
+  workflow_dispatch:
 
-jobs: 
+jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Витягнути код
+        uses: actions/checkout@v3
 
-      -name: install dependencies
-       run: npm ci
-       
-      -name: build the app
-       run: npm run build
+      - name: Встановити залежності
+        run: npm ci
 
-      - name: Deploy 🚀
+      - name: Зібрати додаток
+        run: npm run build
+
+      - name: Розгорнути 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: dist
